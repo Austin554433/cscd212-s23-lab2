@@ -28,26 +28,27 @@ public class Television implements Comparable<Television> {
     }
 
     public String getMake() {
-        return make;
+        return this.make;
     }
 
     public String getModel() {
-        return model;
+        return this.model;
     }
 
     public int getResolution() {
-        return resolution;
+        return this.resolution;
     }
 
     public int getScreenSize() {
-        return screenSize;
+        return this.screenSize;
     }
 
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (!(o instanceof Television that)) return false;
-        return fourK == that.fourK && resolution == that.resolution && screenSize == that.screenSize && smart == that.smart && Objects.equals(make, that.make) && Objects.equals(model, that.model);
+        return this.fourK == that.fourK && this.resolution == that.resolution && this.screenSize == that.screenSize
+                && this.smart == that.smart && Objects.equals(this.make, that.make) && Objects.equals(this.model, that.model);
     }
 
     @Override
@@ -80,7 +81,6 @@ public class Television implements Comparable<Television> {
         int res1 = this.make.compareTo(another.make);
         int res2 = this.model.compareTo(another.model);
         int res3 = this.screenSize - another.screenSize;
-
         if(res1 != 0)
             return res1;
         else if(res2 != 0)
