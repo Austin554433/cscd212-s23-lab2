@@ -23,14 +23,7 @@ public class Television implements Comparable<Television> {
     }
 
     public Television(final String make, final String model, final boolean smart, final int screenSize, final int resolution) {
-//        if(model == null || model.isEmpty() || make == null || make.isEmpty() || screenSize < 32 || resolution < 720)
-//            throw new IllegalArgumentException("Bad Incoming Arguments");
-//        this.make = make;
-//        this.model = model;
-//        this.resolution = resolution;
-//        this.screenSize = screenSize;
-//        this.smart = smart;
-//        this.fourK = (resolution == 2160);
+
         this(model, smart, screenSize, resolution, make);
     }
 
@@ -51,7 +44,7 @@ public class Television implements Comparable<Television> {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (!(o instanceof Television that)) return false;
         return fourK == that.fourK && resolution == that.resolution && screenSize == that.screenSize && smart == that.smart && Objects.equals(make, that.make) && Objects.equals(model, that.model);
@@ -77,15 +70,11 @@ public class Television implements Comparable<Television> {
             else
                 return this.make + "-" + this.model + ", " + this.screenSize + " inch tv with 4K resolution";
         }
-//        if(!fourK)
-//            return this.make + "-" + this.model + ", " + this.screenSize + " inch tv with " + this.resolution + " resolution";
-//        else
-//            return this.make + "-" + this.model + ", " + this.screenSize + " inch tv with 4K resolution";
     }
 
 
     @Override
-    public int compareTo(Television another) {
+    public int compareTo(final Television another) {
         if(another == null)
             throw new IllegalArgumentException("null parameter in the compareTo method");
         int res1 = this.make.compareTo(another.make);
@@ -96,9 +85,6 @@ public class Television implements Comparable<Television> {
             return res1;
         else if(res2 != 0)
             return res2;
-        else if(res3 != 0)
-            return res3;
-        else
-            return 0;
+        else return res3;
     }
 }
